@@ -1,0 +1,73 @@
+// lib/palette.ts
+export const BG_DEEP = "#2d1d1e" // Koyu Espresso: app background, sidebar
+export const BG_CARD = "#684444" // Sütlü Çikolata: cards, panels
+export const ACCENT = "#b58c82" // Latte Köpüğü: primary actions, key data
+export const HOVER_BG = "#f0e8e4" // Ilık Süt: hovers, active fields
+export const TEXT = "#f8f5f4" // Krema Beyazı: main text/icons
+
+// Supporting tokens for subtle UI affordances
+export const TEXT_SUBTLE = "rgba(248, 245, 244, 0.8)"
+export const BORDER_SOFT = "rgba(248, 245, 244, 0.14)"
+export const FILL_SOFT = "rgba(248, 245, 244, 0.08)" // subtle surface fill
+export const FILL_SOFT_2 = "rgba(181, 140, 130, 0.15)" // accent-tinted fill
+
+// Optional status helpers
+export const POSITIVE = "#6fbf73" // palette-friendly green for positive KPIs
+export const WARNING = "#FF8A4D" // warm orange for soft rule warnings
+export const NEGATIVE = "#d46b5a" // warm red/orange for negatives
+
+// app/raporlar/page.tsx
+function formatMoney(n: number) {
+return new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(n)
+}
+
+// app/satis-akisi/page.tsx
+const TABLES = {/* existing code here */};
+
+const formatTRY = (n: number) =>
+new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', maximumFractionDigits: 0 }).format(n);
+
+// existing code here
+<div className="font-semibold">{formatTRY(total)}</div>
+// existing code here
+<span className="font-extrabold">{formatTRY(totals.revenue)}</span>
+
+// app/muhasebe/page.tsx
+import { BG_DEEP, BG_CARD, ACCENT, HOVER_BG, TEXT, TEXT_SUBTLE, BORDER_SOFT, FILL_SOFT, FILL_SOFT_2, POSITIVE, WARNING, NEGATIVE } from '../lib/palette';
+
+const formatTRY = (n: number, opts: Intl.NumberFormatOptions = {}) =>
+new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY', maximumFractionDigits: 0, ...opts }).format(n);
+
+// existing code here
+<ToplamGelir value={formatTRY(24320)} />
+<ToplamGider value={formatTRY(17940)} />
+<NetKar value={formatTRY(6380)} />
+
+// existing code here
+<Badge value={formatTRY(4120)} />
+<Badge value={formatTRY(3010)} />
+<Badge value={formatTRY(2780)} />
+<Badge value={formatTRY(1940)} />
+<Badge value={formatTRY(1860)} />
+<Badge value={formatTRY(7500)} />
+<Badge value={formatTRY(5000)} />
+<Badge value={formatTRY(3200)} />
+<Badge value={formatTRY(1400)} />
+<Badge value={formatTRY(980)} />
+
+// existing code here
+{formatTRY(c.total)}
+
+// existing code here
+<TableCell className="text-right">{formatTRY(r.tutar)}</TableCell>
+<TableCell className="text-right">{formatTRY(r.tutar)}</TableCell>
+
+// app/page.tsx
+<StatTile icon={TrendingUp} title="₺5.000" subtitle="Toplam Ciro" delta="+%10 dünden" />
+
+// existing code here
+<div className="font-extrabold">₺5.506</div>
+<div className="font-extrabold">₺4.087</div>
+
+// existing code here
+<div className="font-extrabold">₺6.078,76</div>
