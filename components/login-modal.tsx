@@ -87,7 +87,7 @@ export function LoginModal() {
       }
     } catch (err) {
       console.error("Login error:", err)
-      setError("Giriş sırasında bir hata oluştu")
+      setError("Oturum açma sırasında bir hata oluştu")
     } finally {
       setIsLoading(false)
     }
@@ -102,7 +102,7 @@ export function LoginModal() {
       await login(user)
     } catch (err) {
       console.error("Demo login error:", err)
-      setError("Giriş sırasında bir hata oluştu")
+      setError("Oturum açma sırasında bir hata oluştu")
     } finally {
       setIsLoading(false)
     }
@@ -137,10 +137,10 @@ export function LoginModal() {
           <CardHeader className="text-center">
             <CardTitle className="flex items-center justify-center gap-2" style={{ color: TEXT }}>
               <LogIn className="w-5 h-5" />
-              Giriş Yap
+              Oturum Aç
             </CardTitle>
             <CardDescription style={{ color: TEXT_SUBTLE }}>
-              Kullanıcı adınız ve PIN kodunuzla giriş yapın
+              Kullanıcı adınız ve PIN kodunuzla oturum açın
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -199,7 +199,7 @@ export function LoginModal() {
                   color: "#2d1d1e",
                 }}
               >
-                {isLoading ? "Giriş yapılıyor..." : "Giriş Yap"}
+                {isLoading ? "Oturum açılıyor..." : "Oturum Aç"}
               </Button>
             </form>
 
